@@ -1,0 +1,23 @@
+      * Testing STRING statement with pointer
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. STRING_WITH_POINTER.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+
+       01 STR PIC X(100).
+       01 MSG1 PIC X(10) VALUE 'HELLO'.
+       01 MSG2 PIC X(10) VALUE 'WORLD'.
+       01 NUM PIC 9(02) VALUE 15.
+
+       PROCEDURE DIVISION.
+           MOVE MSG1 TO STR.
+
+           STRING MSG2 INTO STR POINTER NUM
+           END-STRING.
+
+           DISPLAY STR.
+           DISPLAY NUM.
+
+
+       STOP RUN.
