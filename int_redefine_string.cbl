@@ -1,0 +1,23 @@
+      * INT is redefined as String
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. INT-REDEFINE-STR.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+
+       01  TAX-QUAL-CODE-INDEX             PIC 9(02) VALUE 00.
+       01  FILLER REDEFINES TAX-QUAL-CODE-INDEX.
+           10  FILLER                      PIC X(01).
+           10  TAX-QUAL-CODE               PIC X(01).
+
+       PROCEDURE DIVISION.
+
+           DISPLAY 'TAX-QUAL-CODE-INDEX = 'TAX-QUAL-CODE-INDEX.
+           DISPLAY 'TAX-QUAL-CODE = 'TAX-QUAL-CODE.
+
+           MOVE 'R' TO TAX-QUAL-CODE.
+
+           DISPLAY 'TAX-QUAL-CODE-INDEX = 'TAX-QUAL-CODE-INDEX.
+           DISPLAY 'TAX-QUAL-CODE = 'TAX-QUAL-CODE.
+
+       STOP RUN.
