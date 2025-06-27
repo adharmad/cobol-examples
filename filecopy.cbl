@@ -1,0 +1,59 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. FILECOPY.
+
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+           SELECT FILEIN ASSIGN TO 'FILEIN'
+               ORGANIZATION IS LINE SEQUENTIAL
+               ACCESS MODE IS SEQUENTIAL
+               FILE STATUS IS WS-FILEIN-STATUS.
+           SELECT FILEOUT ASSIGN TO 'FILEOUT'
+               ORGANIZATION IS LINE SEQUENTIAL
+               ACCESS MODE IS SEQUENTIAL
+               FILE STATUS IS WS-FILEOUT-STATUS.
+
+       DATA DIVISION.
+       FILE SECTION.
+       FD  FILEIN.
+           COPY FILEREAD.
+       FD  FILEOUT.
+       01  RECOUT   PIC X(35).
+
+       WORKING-STORAGE SECTION.
+       01  WS-FILEIN-STATUS      PIC XX.
+       01  WS-FILEOUT-STATUS     PIC XX.
+       01  WS-RETURN-CODE        PIC 9(3) VALUE 0.
+
+       PROCEDURE DIVISION.
+           PERFORM MAIN-PROCEDURE.
+           PERFORM CLOSE-FILE.
+           STOP RUN.
+
+       MAIN-PROCEDURE.
+           OPEN INPUT FILEIN
+           OPEN OUTPUT FILEOUT
+           PERFORM COPY-FILE UNTIL WS-FILEIN-STATUS NOT = '00'.
+
+       COPY-FILE.
+               READ FILEIN INTO RECIN
+                   AT END
+                       MOVE '00' TO WS-FILEIN-STATUS
+                   NOT AT END
+                       PERFORM PROCESS-RECORD
+                       MOVE RECIN TO RECOUT
+                       WRITE RECOUT
+               END-READ.
+
+       PROCESS-RECORD.
+           DISPLAY PERSON.
+
+           INSPECT FIRST-NAME REPLACING ALL '*' BY SPACES.
+           INSPECT LAST-NAME REPLACING ALL '*' BY SPACES.
+           INSPECT CITY REPLACING ALL '*' BY SPACES.
+           ADD 1 TO AGE.
+
+        CLOSE-FILE.
+           CLOSE FILEIN.
+           CLOSE FILEOUT.
+           MOVE 0 TO WS-RETURN-CODE.

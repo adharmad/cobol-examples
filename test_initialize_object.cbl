@@ -1,0 +1,13 @@
+        IDENTIFICATION DIVISION.
+        PROGRAM-ID. TEST-INITIALIZE-OBJECT.
+        DATA DIVISION.
+        WORKING-STORAGE SECTION.
+            01 OBJ1.
+                05 VAR1 PIC X(10) VALUE 'HELLOWORLD'.
+                05 VAR2 PIC X(10) VALUE 'MELLOWGHAR'.
+                05 VAR3 PIC 9(8) VALUE 12345678.
+        PROCEDURE DIVISION.
+            DISPLAY OBJ1.
+            INITIALIZE OBJ1.
+            DISPLAY OBJ1.
+            STOP RUN.

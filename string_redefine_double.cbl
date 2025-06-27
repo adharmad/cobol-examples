@@ -1,0 +1,12 @@
+        IDENTIFICATION DIVISION.
+        PROGRAM-ID. STRING-REDEFINE-DOUBLE.
+        DATA DIVISION.
+        WORKING-STORAGE SECTION.
+            01 DBL1 PIC 9(8)V9999.
+            01 STR1 REDEFINES DBL1 PIC X(12).
+        PROCEDURE DIVISION.
+           DISPLAY 'Hello, world'.
+           MOVE 12345.67 TO DBL1.
+           DISPLAY 'DBL1 = ' DBL1.
+           DISPLAY 'STR1 = ' STR1.
+        STOP RUN.
