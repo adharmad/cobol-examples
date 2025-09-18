@@ -1,0 +1,17 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. TEST-NE.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+
+       01  NUM1 PIC S9(9).
+
+       PROCEDURE DIVISION.
+
+           MOVE HIGH-VALUES TO NUM1.
+
+           IF NUM1 NOT EQUAL -1 THEN
+               DISPLAY 'YES'
+           END-IF.
+
+       STOP RUN.

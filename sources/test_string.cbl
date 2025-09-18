@@ -1,0 +1,17 @@
+        IDENTIFICATION DIVISION.
+        PROGRAM-ID. TEST-STRING.
+        DATA DIVISION.
+        WORKING-STORAGE SECTION.
+            01 WS-PREFIX PIC X(10) VALUE 'N446.XPLD.'.
+            01 WS-MID PIC X(7) VALUE 'STAGEQ '.
+            01 WS-SUFFIX PIC X(3) VALUE '1'.
+            01 WS-VAR PIC X(44).
+        PROCEDURE DIVISION.
+           STRING WS-PREFIX DELIMITED BY SPACE
+               WS-MID DELIMITED BY SPACE
+               WS-SUFFIX DELIMITED BY SPACE
+               INTO WS-VAR.
+
+            DISPLAY ':' WS-VAR ':'.
+
+            STOP RUN.
