@@ -15,6 +15,7 @@
 
       *MOVE SPACES to STR.
            INITIALIZE STR.
+           DISPLAY ":"STR":".
            DISPLAY ":"NUM1":".
 
        STOP RUN.

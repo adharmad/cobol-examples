@@ -1,0 +1,17 @@
+      * Test COMP-4
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. TEST1-COMP4.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+
+       01 NUM1 PIC 9(8) COMP-4.
+       01  STR PIC X(4) REDEFINES NUM1.
+
+       PROCEDURE DIVISION.
+
+       MOVE 32 to NUM1.
+           DISPLAY ":"STR":".
+           DISPLAY ":"NUM1":".
+
+       STOP RUN.
