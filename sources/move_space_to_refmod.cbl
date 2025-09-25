@@ -1,0 +1,16 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. MOVE-SPACE-TO-REFMOD.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+
+       01  STR PIC X(100) VALUE 'HELLO WORLD'.
+
+
+       PROCEDURE DIVISION.
+
+           DISPLAY ":"STR":".
+           MOVE ' ' TO STR(6:).
+           DISPLAY ":"STR":".
+
+       STOP RUN.
