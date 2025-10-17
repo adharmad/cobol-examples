@@ -13,7 +13,8 @@
        PROCEDURE DIVISION.
 
       *MOVE SPACES to STR.
-      *    INITIALIZE OBJ1.
+           INITIALIZE OBJ1.
+           MOVE '1' TO NUM-X.
            DISPLAY ":"OBJ1":".
            DISPLAY ":"NUM1":".
 
